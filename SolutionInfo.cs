@@ -3,11 +3,11 @@ using System.Reflection;
 
 [assembly: AssemblyVersionAttribute("1.20.2")]
 [assembly: AssemblyFileVersionAttribute("1.20.2")]
-[assembly: AssemblyTrademarkAttribute("n/a")]
+[assembly: AssemblyTrademarkAttribute("ae95ceeeebe60c183bf4d111f792248ea526655c")]
 namespace System {
     internal static class AssemblyVersionInformation {
         internal const System.String AssemblyVersion = "1.20.2";
         internal const System.String AssemblyFileVersion = "1.20.2";
-        internal const System.String AssemblyTrademark = "n/a";
+        internal const System.String AssemblyTrademark = "ae95ceeeebe60c183bf4d111f792248ea526655c";
     }
 }
