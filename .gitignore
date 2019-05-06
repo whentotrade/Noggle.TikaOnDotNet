@@ -341,3 +341,4 @@ healthchecksdb
 
 #igonre the local lib builds
 lib/
+backup/
