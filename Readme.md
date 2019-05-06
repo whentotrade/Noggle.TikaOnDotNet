@@ -17,7 +17,7 @@ using Noggle.TikaOnDotNet.Text;
 var textParser = new TikaParser();
 
 //Parse a local document file
-var wordDocContents = textParser.Extract(stringToFile);
+var localFileContents = textParser.Extract(stringToFile);
 
 //Parse a web URL
 var webPageContents = textParser.Extract(new Uri("https://google.com"));
