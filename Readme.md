@@ -3,8 +3,6 @@ Tika on .NET
 
 [![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
 
-This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using a newer Tika java version. There have been additional individual feature upgrades.
-
 The project provides a simple wrapper around the [Tika](http://tika.apache.org/) Java text extraction library. 
 
 This project produces two nugets:
@@ -35,9 +33,5 @@ var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
 
 Start out by taking a look at the [Developer Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Developers.md). 
 
-## Having A Problem?
-
-Search in the [Issues](https://github.com/KevM/tikaondotnet/issues?q=is%3Aopen+is%3Aissue)
-as your problem may be a common one. If don't find your problem please [create an
-issue](https://github.com/KevM/tikaondotnet/issues/new). Contributors here will
-chime in when they can.
+## Original Source Reference
+This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using a newer Tika java version. There have been additional individual feature upgrades.
