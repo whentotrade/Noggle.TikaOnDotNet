@@ -1,0 +1,11 @@
+type file
+authors Lars von Thienen
+id Noggle.TikaOnDotnet
+description
+  Pure IKVM Java to .NET port of Apache Tika. Noggle.TikaOnDotNet.Text contains simple wrapper and helper functions. (This is an extended and upgraded version of the famous TikaOnDotNet port done by KevM.) 
+files
+  ..\..\lib\Noggle.TikaOnDotnet.dll ==> lib
+dependencies
+  IKVM >= 8.1.5717
+projectUrl
+  https://github.com/KevM/tikaondotnet

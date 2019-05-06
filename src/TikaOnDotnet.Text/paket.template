@@ -1,0 +1,11 @@
+type file
+authors Kevin Miller, Lars von Thienen
+id Noggle.TikaOnDotnet.Text
+description
+  Wrapper for running Apache Tika on .NET through Noggle.TikaOnDotNet. 
+files
+    bin\Release\Noggle.TikaOnDotNet.* ==> lib
+dependencies
+    Noggle.TikaOnDotnet CURRENTVERSION
+projectUrl
+  https://github.com/KevM/tikaondotnet
