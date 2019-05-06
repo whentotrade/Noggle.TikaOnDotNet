@@ -4,12 +4,6 @@ This guild is for helping project contributors and maintainers get setup and ori
 
 ## Building
 
-The first step is to clone the repo [using Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
-```bash
-git clone https://github.com/KevM/tikaondotnet.git
-```
-
 This project uses [FAKE](http://fsharp.github.io/FAKE/) for build automation and
 [Paket](https://fsprojects.github.io/Paket/) for managing dependencies.
 
@@ -66,8 +60,5 @@ Looking for updated versions of IKVM? [Check out their blog](http://weblog.ikvm.
 
 ## Releasing a Nuget
 
-1. Update the `Release-Notes.md` adding a new section for the next version. This is really important because it controls the version number of the assemblies and nuget packages.
-2. Tag the release commit. `git tag -a v{version} -m "Ship it!"`
-3. Push the tag `git push origin --tags`
+Update the `Release-Notes.md` adding a new section for the next version. This is really important because it controls the version number of the assemblies and nuget packages.
 
-Appveyor is setup to to automatically push tagged commits to Nuget.
