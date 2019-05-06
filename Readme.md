@@ -3,7 +3,9 @@ Tika on .NET
 
 [![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
 
-This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). Providing a simple wrapper around the [Tika](http://tika.apache.org/) Java text extraction library. 
+This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using a newer Tika java version. There have been additional individual feature upgrades.
+
+The project provides a simple wrapper around the [Tika](http://tika.apache.org/) Java text extraction library. 
 
 This project produces two nugets:
 - Noggle.TikaOnDotNet - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
