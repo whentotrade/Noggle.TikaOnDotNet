@@ -14,11 +14,21 @@ The project provides a wrapper and helper functions around the [Tika](http://tik
 ```cs
 using Noggle.TikaOnDotNet.Text;
 
-var textExtractor = new TikaParser();
+var textParser = new TikaParser();
 
-var wordDocContents = textExtractor.Extract(@".\path\to\my favorite word.docx");
-var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
+//Parse document file
+var wordDocContents = textParser.Extract(stringToFile);
+
+//Parse URL
+var webPageContents = textParser.Extract(new Uri("https://google.com"));
+
+//Parsing .NET Stream
+using (FileStream fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
+{
+    var streamDocResults = textParser.Extract(fileStream);
+}
 ```
+
 
 ## Nuget
 
@@ -29,7 +39,7 @@ Link: https://www.nuget.org/packages/Noggle.TikaOnDotnet/
 
 - **Noggle.TikaOnDotNet.Text**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
 
-## How To Update (Developer)
+## How To Update
 
 Start out by taking a look at the [Developer Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Developers.md). 
 
