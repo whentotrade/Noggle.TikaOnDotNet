@@ -22,7 +22,7 @@ var wordDocContents = textParser.Extract(stringToFile);
 //Parse a web URL
 var webPageContents = textParser.Extract(new Uri("https://google.com"));
 
-//Parsing a .NET Stream
+//Parse a .NET Stream
 var streamDocResults = textParser.Extract(new FileStream(file, FileMode.Open, FileAccess.Read));
 
 ```
