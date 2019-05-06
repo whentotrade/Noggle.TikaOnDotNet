@@ -3,16 +3,7 @@ Tika on .NET
 
 [![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
 
-The project provides a simple wrapper around the [Tika](http://tika.apache.org/) Java text extraction library. 
-
-This project produces two nugets:
-- Noggle.TikaOnDotNet - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
-
-[![Install-Package Noggle.TikaOnDotNet](https://cldup.com/H-IdGdU75T.png)](https://www.nuget.org/packages/Noggle.TikaOnDotnet/)
-
-- Noggle.TikaOnDotNet.Text - Use Tika to extract text and additional metadata from rich documents.
-
-[![Install-Package Noggle.TikaOnDotNet.Text](https://cldup.com/_BM0b5jVjU.png)](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/)
+The project provides a wrapper and helper functions around the [Tika](http://tika.apache.org/) Java text extraction library. 
 
 ## Getting Started 
 
@@ -28,6 +19,17 @@ var textExtractor = new TikaParser();
 var wordDocContents = textExtractor.Extract(@".\path\to\my favorite word.docx");
 var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
 ```
+
+## Nuget
+
+This project produces two nugets:
+- Noggle.TikaOnDotNet - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
+
+[![Install-Package Noggle.TikaOnDotNet](https://cldup.com/H-IdGdU75T.png)](https://www.nuget.org/packages/Noggle.TikaOnDotnet/)
+
+- Noggle.TikaOnDotNet.Text -  Helper functions to use Tika to extract text and additional metadata from rich documents.
+
+[![Install-Package Noggle.TikaOnDotNet.Text](https://cldup.com/_BM0b5jVjU.png)](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/)
 
 ## How To Update as Developer
 
