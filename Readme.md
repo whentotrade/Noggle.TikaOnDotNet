@@ -29,9 +29,9 @@ Link: https://www.nuget.org/packages/Noggle.TikaOnDotnet/
 
 - **Noggle.TikaOnDotNet.Text**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
 
-## How To Update as Developer
+## How To Update (Developer)
 
 Start out by taking a look at the [Developer Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Developers.md). 
 
-## Original Source Reference
-This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using a newer Tika java version. There have been additional individual feature upgrades.
+## Source Reference
+This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using newer Tika java version. There have been additional individual feature upgrades in the wrapper package Noggle.TikaOnDotNet.Text.
