@@ -3,19 +3,19 @@ Tika on .NET
 
 [![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
 
-This project is a simple wrapper around the very excellent and robust
-[Tika](http://tika.apache.org/) text extraction Java library. This project produces two nugets:
-- TikaOnDotNet - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
+This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). Providing a simple wrapper around the [Tika](http://tika.apache.org/) Java text extraction library. 
+
+This project produces two nugets:
+- Noggle.TikaOnDotNet - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
 
 [![Install-Package Noggle.TikaOnDotNet](https://cldup.com/H-IdGdU75T.png)](https://www.nuget.org/packages/Noggle.TikaOnDotnet/)
 
-- Noggle.TikaOnDotNet.Text - Use Tika to extract text from rich documents.
+- Noggle.TikaOnDotNet.Text - Use Tika to extract text and additional metadata from rich documents.
 
 [![Install-Package Noggle.TikaOnDotNet.Text](https://cldup.com/_BM0b5jVjU.png)](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/)
 
 ## Getting Started 
 
-The best way to get started is to:
 - Add a Nuget dependency to [Noggle.TikaOnDotNet.Text](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/).
 - Instantiate a new `TikaParser` object and call one of the `Extract` methods.
 
@@ -29,11 +29,9 @@ var wordDocContents = textExtractor.Extract(@".\path\to\my favorite word.docx");
 var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
 ```
 
-Take a look at [our tests](https://github.com/KevM/tikaondotnet/tree/master/src/TikaOnDotNet.Tests) for more usage examples. 
-
 ## How To Contribute
 
-Have an idea to make this project better? Great! Start out by taking a look at our [Contributing Guide](https://github.com/KevM/tikaondotnet/blob/master/Contributing.md).
+Have an idea to make this project better? Great! Start out by taking a look at our [Contributing Guide](https://github.com/whentotade/noggle.tikaondotnet/blob/master/Contributing.md).
 
 ## Having A Problem?
 
