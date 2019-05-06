@@ -29,9 +29,9 @@ var wordDocContents = textExtractor.Extract(@".\path\to\my favorite word.docx");
 var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
 ```
 
-## How To Contribute
+## How To Update as Developer
 
-Have an idea to make this project better? Great! Start out by taking a look at our [Contributing Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Contributing.md).
+Start out by taking a look at the [Developer Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Developers.md). 
 
 ## Having A Problem?
 
