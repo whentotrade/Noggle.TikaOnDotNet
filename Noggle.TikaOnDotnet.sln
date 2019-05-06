@@ -18,7 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noggle.TikaOnDotnet.Text", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D78ACF9B-71D5-4D14-BF49-9E7B93A2867B}"
 	ProjectSection(SolutionItems) = preProject
+		Developers.md = Developers.md
+		src\TikaOnDotNet\paket.template = src\TikaOnDotNet\paket.template
 		Readme.md = Readme.md
+		Release-Notes.md = Release-Notes.md
 	EndProjectSection
 EndProject
 Global
