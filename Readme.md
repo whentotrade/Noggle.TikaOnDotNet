@@ -24,13 +24,10 @@ var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
 
 This project produces two nugets:
 
-- **Noggle.TikaOnDotNet** - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
+- **Noggle.TikaOnDotNet**: A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
+Link: https://www.nuget.org/packages/Noggle.TikaOnDotnet/
 
-https://www.nuget.org/packages/Noggle.TikaOnDotnet/
-
-- **Noggle.TikaOnDotNet.Text** -  Helper functions to use Tika to extract text and additional metadata from rich documents.
-
-https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
+- **Noggle.TikaOnDotNet.Text**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
 
 ## How To Update as Developer
 
