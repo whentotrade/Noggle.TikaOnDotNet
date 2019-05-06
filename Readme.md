@@ -3,7 +3,7 @@ Tika on .NET
 
 [![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
 
-The project provides a wrapper and helper functions around the [Tika](http://tika.apache.org/) Java text extraction library. 
+The project provides a .NET wrapper with simple helper functions around the [Tika](http://tika.apache.org/) text extraction library. To use the Tika Java libraries in your .NET application via IKVM. 
 
 ## Getting Started 
 
