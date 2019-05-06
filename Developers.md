@@ -1,6 +1,6 @@
 # Developers
 
-This guild is for helping project contributors and maintainers get setup and oriented when making changes to TikaOnDotnet.
+This guide is for helping maintainers get setup and oriented when making changes to TikaOnDotnet.
 
 ## Building
 
@@ -61,4 +61,8 @@ Looking for updated versions of IKVM? [Check out their blog](http://weblog.ikvm.
 ## Releasing a Nuget
 
 Update the `Release-Notes.md` adding a new section for the next version. This is really important because it controls the version number of the assemblies and nuget packages.
+
+Ref.:
+Original Source: https://github.com/KevM/tikaondotnet/blob/master/Developers.md
+
 
