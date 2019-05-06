@@ -1,29 +1,29 @@
 Tika on .NET
 ============
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ofc68okbo9s75okr?svg=true)](https://ci.appveyor.com/project/KevM/tikaondotnet) [![NuGet version](https://badge.fury.io/nu/TikaOnDotNet.TextExtractor.svg)](https://badge.fury.io/nu/TikaOnDotNet.TextExtractor)
+[![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
 
 This project is a simple wrapper around the very excellent and robust
 [Tika](http://tika.apache.org/) text extraction Java library. This project produces two nugets:
 - TikaOnDotNet - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
 
-[![Install-Package TikaOnDotNet](https://cldup.com/H-IdGdU75T.png)](https://www.nuget.org/packages/TikaOnDotnet/)
+[![Install-Package Noggle.TikaOnDotNet](https://cldup.com/H-IdGdU75T.png)](https://www.nuget.org/packages/TikaOnDotnet/)
 
-- TikaOnDotNet.TextExtractor - Use Tika to extract text from rich documents.
+- Noggle.TikaOnDotNet.Text - Use Tika to extract text from rich documents.
 
-[![Install-Package TikaOnDotNet.TextExtractor](https://cldup.com/_BM0b5jVjU.png)](https://www.nuget.org/packages/TikaOnDotNet.TextExtractor/)
+[![Install-Package Noggle.TikaOnDotNet.Text](https://cldup.com/_BM0b5jVjU.png)](https://www.nuget.org/packages/TikaOnDotNet.TextExtractor/)
 
 ## Getting Started 
 
 The best way to get started is to:
-- Add a Nuget dependency to [TikaOnDotNet.TextExtractor](https://www.nuget.org/packages/TikaOnDotNet.TextExtractor/).
-- Instantiate a new `TextExtractor` object and call one of the `Extract` methods.
+- Add a Nuget dependency to [Noggle.TikaOnDotNet.Text](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/).
+- Instantiate a new `TikaParser` object and call one of the `Extract` methods.
 
 ### Usage 
 ```cs
-// using TikaOnDotNet.TextExtractor;
+using Noggle.TikaOnDotNet.Text;
 
-var textExtractor = new TextExtractor();
+var textExtractor = new TikaParser();
 
 var wordDocContents = textExtractor.Extract(@".\path\to\my favorite word.docx");
 var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
