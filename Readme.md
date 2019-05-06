@@ -31,7 +31,7 @@ var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
 
 ## How To Contribute
 
-Have an idea to make this project better? Great! Start out by taking a look at our [Contributing Guide](https://github.com/whentotade/noggle.tikaondotnet/blob/master/Contributing.md).
+Have an idea to make this project better? Great! Start out by taking a look at our [Contributing Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Contributing.md).
 
 ## Having A Problem?
 
