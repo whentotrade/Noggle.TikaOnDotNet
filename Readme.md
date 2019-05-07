@@ -16,6 +16,13 @@ using Noggle.TikaOnDotNet.Parser;
 
 var tika = new Tika();
 
+//simple wrapper for text extraction
+string textFile = tika.ParseToString(stringToFile);
+
+string textStream = tika.ParseToString(streamObject);
+
+string textByteArray =tika.ParseToString(byteArrayObject);
+
 //Parse a local document file
 var localFileContents = tika.Parse(stringToFile);
 
