@@ -1,6 +1,6 @@
 type file
 authors Lars von Thienen
-id Noggle.TikaOnDotnet.Text
+id Noggle.TikaOnDotnet.Parser
 description
   Wrapper and helper functions for running Apache Tika on .NET through Noggle.TikaOnDotNet. 
 files

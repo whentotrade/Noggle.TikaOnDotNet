@@ -1,6 +1,6 @@
 using org.apache.tika.metadata;
 
-namespace Noggle.TikaOnDotNet.Text.Stream
+namespace Noggle.TikaOnDotNet.Parser.Stream
 {
     public class ExtractionResult
     {

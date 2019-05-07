@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using org.xml.sax;
 
-namespace Noggle.TikaOnDotNet.Text.Stream
+namespace Noggle.TikaOnDotNet.Parser.Stream
 {
     /// <summary>
     /// Write Tika output to a string builder while squelching the dreadful empty lines.

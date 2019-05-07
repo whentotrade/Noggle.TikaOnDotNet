@@ -4,20 +4,20 @@ using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using org.apache.tika.metadata;
-using Noggle.TikaOnDotNet.Text;
+using Noggle.TikaOnDotNet.Parser;
 
 namespace Noggle.TikaOnDotNet.Tests
 {
     [TestFixture]
     public class text_extraction_with_with_extraction_result_assembler
     {
-        private TikaParser _cut;
+        private Tika _cut;
         private string _filePathParent;
 
         [SetUp]
         public virtual void SetUp()
         {
-            _cut = new TikaParser();
+            _cut = new Tika();
             _filePathParent = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
         }
         public class CustomResult
@@ -40,7 +40,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_author_list_from_pdf()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/file_author.pdf", CreateCustomResult);
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/file_author.pdf", CreateCustomResult);
 
             textExtractionResult.Metadata["meta:author"].Should().ContainInOrder("Bernal, M. A.", "deAlmeida, C. E.", "Incerti, S.", "Champion, C.", "Ivanchenko, V.", "Francis, Z.");
         }

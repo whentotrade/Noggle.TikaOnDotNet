@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Noggle.TikaOnDotNet.Text
+namespace Noggle.TikaOnDotNet.Parser
 {
     public class TextExtractionResult
     {
@@ -36,4 +36,6 @@ namespace Noggle.TikaOnDotNet.Text
             return builder.ToString();
         }
     }
+
+  
 }

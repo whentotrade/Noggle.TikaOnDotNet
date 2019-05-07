@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Noggle.TikaOnDotNet.Text
+namespace Noggle.TikaOnDotNet.Parser
 {
     public static class StringExtensions
     {

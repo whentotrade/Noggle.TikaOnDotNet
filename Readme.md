@@ -16,8 +16,8 @@ using Noggle.TikaOnDotNet.Text;
 
 var textExtractor = new TikaParser();
 
-var wordDocContents = textExtractor.Extract(@".\path\to\my favorite word.docx");
-var webPageContents = textExtractor.Extract(new Uri("https://google.com"));
+var wordDocContents = textExtractor.Parse(@".\path\to\my favorite word.docx");
+var webPageContents = textExtractor.Parse(new Uri("https://google.com"));
 ```
 
 ## Nuget

@@ -1,7 +1,7 @@
 ﻿using ikvm.runtime;
 using java.lang;
 
-namespace Noggle.TikaOnDotNet.Text
+namespace Noggle.TikaOnDotNet.Parser
 {
     public class MySystemClassLoader : ClassLoader
     {

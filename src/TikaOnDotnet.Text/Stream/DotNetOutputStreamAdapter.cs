@@ -1,6 +1,6 @@
 ﻿using java.io;
 
-namespace Noggle.TikaOnDotNet.Text.Stream
+namespace Noggle.TikaOnDotNet.Parser.Stream
 {
     internal class DotNetOutputStreamAdapter : OutputStream
     {

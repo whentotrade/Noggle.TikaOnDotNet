@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
-using Noggle.TikaOnDotNet.Text;
+using Noggle.TikaOnDotNet.Parser;
 using System.Diagnostics;
 
 namespace Noggle.TikaOnDotNet.Tests
@@ -12,13 +12,13 @@ namespace Noggle.TikaOnDotNet.Tests
     [TestFixture]
     public class text_extraction
     {
-        private TikaParser _cut;
+        private Tika _cut;
         private string _filePathParent;
 
         [SetUp]
         public virtual void SetUp()
         {
-            _cut = new TikaParser();
+            _cut = new Tika();
             _filePathParent = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
         }
 
@@ -28,7 +28,7 @@ namespace Noggle.TikaOnDotNet.Tests
             string fileName = _filePathParent + "files/doesnotexist.mp3";
 
 
-            Action act = () => _cut.Extract(fileName);
+            Action act = () => _cut.Parse(fileName);
 
             act.Should().Throw<TextExtractionException>().Which.Message.Should().Contain(fileName);
 
@@ -41,7 +41,7 @@ namespace Noggle.TikaOnDotNet.Tests
         {
             const string uri = "http://example.com/does/not/really/exist/mp3/repo/zzzarble.mp3";
 
-            Action act = () => _cut.Extract(new Uri(uri));
+            Action act = () => _cut.Parse(new Uri(uri));
 
             act.Should().Throw<TextExtractionException>();
             //act.ShouldThrow<TextExtractionException>();
@@ -50,7 +50,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_mp4()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/badgers.mp4");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/badgers.mp4");
 
             textExtractionResult.ContentType.Should().Be("video/mp4");
         }
@@ -61,7 +61,7 @@ namespace Noggle.TikaOnDotNet.Tests
             var original = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), _filePathParent + @"files\badgers.mp4"));
             var mp4 = original.CopyTo(Path.Combine(Directory.GetCurrentDirectory(), _filePathParent + @"files\badgers.bak.mp4"));
 
-            _cut.Extract(_filePathParent + "files/badgers.bak.mp4");
+            _cut.Parse(_filePathParent + "files/badgers.bak.mp4");
 
             mp4.Delete();
             mp4.Exists.Should().BeFalse();
@@ -72,7 +72,7 @@ namespace Noggle.TikaOnDotNet.Tests
         {
             string filePath = (_filePathParent + "files/apache.jpg");
 
-            var textExtractionResult = _cut.Extract(filePath);
+            var textExtractionResult = _cut.Parse(filePath);
 
             textExtractionResult.Metadata["FilePath"].Should().Be(filePath);
         }
@@ -80,7 +80,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_contained_filenames_from_zips()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/tika.zip");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/tika.zip");
 
             textExtractionResult.Text.Should().Contain("Tika.docx");
             textExtractionResult.Text.Should().Contain("Tika.pptx");
@@ -90,7 +90,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_contained_filenames_and_text_from_zips()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/tika.zip");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/tika.zip");
 
             var fileNames = new List<string>(new[] { "Tika.docx", "Tika.pptx", "tika.xlsx" });
 
@@ -108,7 +108,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_jpg()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/apache.jpg");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/apache.jpg");
 
             textExtractionResult.Text.Trim().Should().BeEmpty();
 
@@ -118,7 +118,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_rtf()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.rtf");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.rtf");
 
             textExtractionResult.Text.Should().Contain("pack of pickled almonds");
         }
@@ -126,7 +126,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_pdf()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.pdf");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.pdf");
 
             textExtractionResult.Text.Should().Contain("pack of pickled almonds");
         }
@@ -134,7 +134,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_docx()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.docx");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.docx");
 
             textExtractionResult.Text.Should().Contain("formatted in interesting ways");
         }
@@ -142,7 +142,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_pptx()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.pptx");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.pptx");
 
             textExtractionResult.Text.Should().Contain("Tika Test Presentation");
         }
@@ -150,7 +150,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_xlsx()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.xlsx");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.xlsx");
 
             textExtractionResult.Text.Should().Contain("Use the force duke");
         }
@@ -158,7 +158,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_doc()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.doc");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.doc");
 
             textExtractionResult.Text.Should().Contain("formatted in interesting ways");
         }
@@ -166,7 +166,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_ppt()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.ppt");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.ppt");
 
             textExtractionResult.Text.Should().Contain("This document is used for testing");
         }
@@ -174,7 +174,7 @@ namespace Noggle.TikaOnDotNet.Tests
         [Test]
         public void should_extract_from_xls()
         {
-            var textExtractionResult = _cut.Extract(_filePathParent + "files/Tika.xls");
+            var textExtractionResult = _cut.Parse(_filePathParent + "files/Tika.xls");
 
             textExtractionResult.Text.Should().Contain("Use the force duke");
         }
@@ -183,7 +183,7 @@ namespace Noggle.TikaOnDotNet.Tests
         public void should_extract_from_xls_with_byte()
         {
             var data = File.ReadAllBytes(_filePathParent+"files/Tika.xls");
-            var textExtractionResult = _cut.Extract(data);
+            var textExtractionResult = _cut.Parse(data);
 
             textExtractionResult.Text.Should().Contain("Use the force duke");
         }
@@ -192,7 +192,7 @@ namespace Noggle.TikaOnDotNet.Tests
         public void should_extract_from_uri()
         {
             const string url = "http://google.com/";
-            var textExtractionResult = _cut.Extract(new Uri(url));
+            var textExtractionResult = _cut.Parse(new Uri(url));
 
             textExtractionResult.Text.Should().Contain("Google");
             textExtractionResult.Metadata["Uri"].Should().Be(url);
@@ -202,7 +202,7 @@ namespace Noggle.TikaOnDotNet.Tests
         public void should_extract_msg()
         {
 
-            var textExtractionResult = _cut.Extract(_filePathParent + "/files/Tika.msg");
+            var textExtractionResult = _cut.Parse(_filePathParent + "/files/Tika.msg");
 
             textExtractionResult.Text.Should().Contain("This is my test file");
             textExtractionResult.Metadata["subject"].Should().Be("This is the subject");
@@ -213,7 +213,7 @@ namespace Noggle.TikaOnDotNet.Tests
         {
             const string url = "https://en.wikipedia.org/wiki/Apache_Tika";
 
-            var textExtractionResult = _cut.Extract(new Uri(url));
+            var textExtractionResult = _cut.Parse(new Uri(url));
 
             textExtractionResult.Text.Should().Contain("Apache Tika is a content detection and analysis framework");
             textExtractionResult.Metadata["Uri"].Should().Be(url);

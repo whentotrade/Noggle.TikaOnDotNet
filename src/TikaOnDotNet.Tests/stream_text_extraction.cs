@@ -3,8 +3,8 @@ using System.IO;
 using FluentAssertions;
 using NUnit.Framework;
 using org.apache.tika.io;
-using Noggle.TikaOnDotNet.Text;
-using Noggle.TikaOnDotNet.Text.Stream;
+using Noggle.TikaOnDotNet.Parser;
+using Noggle.TikaOnDotNet.Parser.Stream;
 
 namespace Noggle.TikaOnDotNet.Tests
 {

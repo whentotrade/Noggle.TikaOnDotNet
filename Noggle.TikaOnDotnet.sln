@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noggle.TikaOnDotNet.Tests",
 		{4C55E602-1C6C-4396-A118-70BA9A93FD97} = {4C55E602-1C6C-4396-A118-70BA9A93FD97}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noggle.TikaOnDotnet.Text", "src\TikaOnDotnet.Text\Noggle.TikaOnDotnet.Text.csproj", "{4C55E602-1C6C-4396-A118-70BA9A93FD97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noggle.TikaOnDotnet.Parser", "src\TikaOnDotnet.Text\Noggle.TikaOnDotnet.Parser.csproj", "{4C55E602-1C6C-4396-A118-70BA9A93FD97}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D78ACF9B-71D5-4D14-BF49-9E7B93A2867B}"
 	ProjectSection(SolutionItems) = preProject

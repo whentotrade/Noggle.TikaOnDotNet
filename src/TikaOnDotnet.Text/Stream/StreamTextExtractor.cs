@@ -7,7 +7,7 @@ using org.apache.tika.metadata;
 using org.apache.tika.parser;
 using Parser = org.apache.tika.parser.Parser;
 
-namespace Noggle.TikaOnDotNet.Text.Stream
+namespace Noggle.TikaOnDotNet.Parser.Stream
 {
     public class StreamTextExtractor
     {
@@ -21,8 +21,8 @@ namespace Noggle.TikaOnDotNet.Text.Stream
                 var handler = GetTransformerHandler(outputStream);
 
                 //use the base class type for the key or parts of Tika won't find a usable parser
-                parseContext.set(typeof(Parser), parser);
-
+                parseContext.set(typeof(org.apache.tika.parser.Parser), parser);
+                
                 using (var inputStream = streamFactory(metadata))
                 {
                     try

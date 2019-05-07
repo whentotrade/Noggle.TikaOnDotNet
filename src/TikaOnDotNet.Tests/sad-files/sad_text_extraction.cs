@@ -1,20 +1,20 @@
 using System; 
 using FluentAssertions;
 using NUnit.Framework;
-using Noggle.TikaOnDotNet.Text;
+using Noggle.TikaOnDotNet.Parser;
 
 namespace Noggle.TikaOnDotNet.Tests
 {
     [TestFixture]
     public class sad_text_extraction
     {
-        private TikaParser _cut;
+        private Tika _cut;
         private string _filePathParent;
 
         [SetUp]
         public virtual void SetUp()
         {
-            _cut = new TikaParser();
+            _cut = new Tika();
             _filePathParent = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
         }
 
@@ -23,7 +23,7 @@ namespace Noggle.TikaOnDotNet.Tests
         {
             var filePath = _filePathParent +"sad-files/EI-73-1018-2_5632837.doc";
 
-            Action act = () => _cut.Extract(filePath);
+            Action act = () => _cut.Parse(filePath);
 
             act.Should().Throw<TextExtractionException>();
 
@@ -35,7 +35,7 @@ namespace Noggle.TikaOnDotNet.Tests
         {
             var filePath = _filePathParent +"sad-files/EI-73-1027-3_5632849.doc";
 
-            Action act = () => _cut.Extract(filePath);
+            Action act = () => _cut.Parse(filePath);
 
             act.Should().Throw<TextExtractionException>();
             //act.ShouldThrow<TextExtractionException>();

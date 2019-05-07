@@ -38,7 +38,7 @@ public static CustomResult CreateCustomResult(string text, Metadata metadata)
 [Test]
 public void should_extract_author_list_from_pdf()
 {
-    var textExtractionResult = new TextExtractor().Extract("file_with_authors.pdf", CreateCustomResult);
+    var textExtractionResult = new TextExtractor().Parse("file_with_authors.pdf", CreateCustomResult);
 
     textExtractionResult.Metadata["meta:author"].Should().ContainInOrder("Fred Jones, M. D.", "Donald Evans D. M.");
 }
@@ -58,7 +58,7 @@ public void should_extract_author_list_from_pdf()
 
 ## 1.14.2
 
-- Fix `TextExtractor.Extract(string url)` Closes #84
+- Fix `TextExtractor.Parse(string url)` Closes #84
 - Fix TextExtractor nuget depenency on TikaOnDotNet. Should be future proof now. Closes #86
 
 ## 1.14.1

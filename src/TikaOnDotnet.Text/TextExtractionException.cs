@@ -1,6 +1,6 @@
 using System;
 
-namespace Noggle.TikaOnDotNet.Text
+namespace Noggle.TikaOnDotNet.Parser
 {
     public class TextExtractionException : Exception
     {

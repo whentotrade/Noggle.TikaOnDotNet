@@ -5,26 +5,33 @@ using System.Net;
 using java.io;
 using org.apache.tika.io;
 using org.apache.tika.metadata;
-using Noggle.TikaOnDotNet.Text.Stream;
+using Noggle.TikaOnDotNet.Parser.Stream;
 using Exception = System.Exception;
+using org.apache.tika.langdetect;
 
-namespace Noggle.TikaOnDotNet.Text
+namespace Noggle.TikaOnDotNet.Parser
 {
-    public class TikaParser : ITikaParser
+    public partial class Tika : ITika
     {
-        public TextExtractionResult Extract(string filePath)
+        public string ParseToString(string filePath)
         {
-            return Extract(filePath, LegacyResultAssembler);
+            return Parse(filePath, LegacyResultAssembler).Text ?? "";
         }
 
-        public TExtractionResult Extract<TExtractionResult>(
+
+        public TextExtractionResult Parse(string filePath)
+        {
+            return Parse(filePath, LegacyResultAssembler);
+        }
+
+        public TExtractionResult Parse<TExtractionResult>(
             string filePath,
             Func<string, Metadata, TExtractionResult> extractionResultAssembler
             )
         {
             try
             {
-                return Extract(FileStreamFactory, extractionResultAssembler);
+                return Parse(FileStreamFactory, extractionResultAssembler);
             }
             catch (Exception ex)
             {
@@ -40,28 +47,37 @@ namespace Noggle.TikaOnDotNet.Text
                 return result;
             }
         }
-
-        public TextExtractionResult Extract(byte[] data)
+        public string ParseToString(byte[] data)
         {
-            return Extract(data, LegacyResultAssembler);
+            return Parse(data, LegacyResultAssembler).Text ?? "";
         }
 
-        public TExtractionResult Extract<TExtractionResult>(byte[] data, Func<string, Metadata, TExtractionResult> extractionResultAssembler)
+        public TextExtractionResult Parse(byte[] data)
         {
-            return Extract(metadata => TikaInputStream.get(data, metadata), extractionResultAssembler);
+            return Parse(data, LegacyResultAssembler);
         }
 
-        public TextExtractionResult Extract(Uri uri)
+        public TExtractionResult Parse<TExtractionResult>(byte[] data, Func<string, Metadata, TExtractionResult> extractionResultAssembler)
         {
-            return Extract(uri, LegacyResultAssembler);
+            return Parse(metadata => TikaInputStream.get(data, metadata), extractionResultAssembler);
         }
 
-        public TExtractionResult Extract<TExtractionResult>(
+        public string ParseToString(Uri uri)
+        {
+            return Parse(uri, LegacyResultAssembler).Text ?? "";
+        }
+
+        public TextExtractionResult Parse(Uri uri)
+        {
+            return Parse(uri, LegacyResultAssembler);
+        }
+
+        public TExtractionResult Parse<TExtractionResult>(
             Uri uri,
             Func<string, Metadata, TExtractionResult> extractionResultAssembler
         )
         {
-            return Extract(UrlStreamFactory, extractionResultAssembler);
+            return Parse(UrlStreamFactory, extractionResultAssembler);
 
             InputStream UrlStreamFactory(Metadata metadata)
             {
@@ -72,18 +88,46 @@ namespace Noggle.TikaOnDotNet.Text
             }
         }
 
-        public TextExtractionResult Extract(System.IO.Stream inputStream)
+        public string ParseToString(System.IO.Stream inputStream)
         {
-            var javaInputStream = new ikvm.io.InputStreamWrapper(inputStream); //or directly use the filestream
-            return Extract(metadata2 => TikaInputStream.get(javaInputStream));
+            return Parse(inputStream).Text ?? "";
         }
 
-        public TextExtractionResult Extract(Func<Metadata, InputStream> streamFactory)
+        public TextExtractionResult Parse(System.IO.Stream inputStream)
         {
-            return Extract(streamFactory, LegacyResultAssembler);
+            return Parse(inputStream, LegacyResultAssembler);
+            //var javaInputStream = new ikvm.io.InputStreamWrapper(inputStream); //or directly use the filestream
+            //return Parse(metadata2 => TikaInputStream.get(javaInputStream));
         }
 
-        public TExtractionResult Extract<TExtractionResult>(Func<Metadata, InputStream> streamFactory, Func<string, Metadata, TExtractionResult> extractionResultAssembler)
+        public TExtractionResult Parse<TExtractionResult>(
+            System.IO.Stream inputStream,
+            Func<string, Metadata, TExtractionResult> extractionResultAssembler
+            )
+        {
+            try
+            {
+                return Parse(SystemStreamFactory, extractionResultAssembler);
+            }
+            catch (Exception ex)
+            {
+                throw new TextExtractionException("Extraction of text from stream failed.", ex);
+            }
+
+            InputStream SystemStreamFactory(Metadata metadata)
+            {
+                var ioStream = new ikvm.io.InputStreamWrapper(inputStream);
+                var result = TikaInputStream.get(ioStream);
+                return result;
+            }
+        }
+
+        public TextExtractionResult Parse(Func<Metadata, InputStream> streamFactory)
+        {
+            return Parse(streamFactory, LegacyResultAssembler);
+        }
+
+        public TExtractionResult Parse<TExtractionResult>(Func<Metadata, InputStream> streamFactory, Func<string, Metadata, TExtractionResult> extractionResultAssembler)
         {
             var streamExtractor = new StreamTextExtractor();
             using (var outputStream = new MemoryStream())
