@@ -12,7 +12,7 @@ The project provides a .NET wrapper with simple helper functions around the [Tik
 
 ### Usage 
 ```cs
-using Noggle.TikaOnDotNet.Text;
+using Noggle.TikaOnDotNet.Parser;
 
 var tika = new Tika();
 
@@ -35,7 +35,7 @@ This project produces two nugets:
 - **Noggle.TikaOnDotNet**: A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
 Link: https://www.nuget.org/packages/Noggle.TikaOnDotnet/
 
-- **Noggle.TikaOnDotNet.Text**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
+- **Noggle.TikaOnDotNet.Parser**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
 
 ## How To Update
 
