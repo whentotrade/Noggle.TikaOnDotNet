@@ -1,14 +1,14 @@
 Tika on .NET
 ============
 
-[![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
+[![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Parser.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Parser)
 
 The project provides a .NET wrapper with simple helper functions around the [Tika](http://tika.apache.org/) text extraction library. To use the Tika Java libraries in your .NET application via IKVM. 
 
 ## Getting Started 
 
-- Add a Nuget dependency to [Noggle.TikaOnDotNet.Text](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/).
-- Instantiate a new `TikaParser` object and call one of the `Extract` methods.
+- Add a Nuget dependency to [Noggle.TikaOnDotNet.Parser](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Parser/).
+- Instantiate a new `Tika` object and call one of the `Parser` methods.
 
 ### Usage 
 ```cs
