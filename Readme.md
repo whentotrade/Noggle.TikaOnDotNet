@@ -3,7 +3,7 @@ Tika on .NET
 
 [![NuGet version](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text.svg)](https://badge.fury.io/nu/Noggle.TikaOnDotNet.Text)
 
-The project provides a wrapper and helper functions around the [Tika](http://tika.apache.org/) Java text extraction library. 
+The project provides a .NET wrapper with simple helper functions around the [Tika](http://tika.apache.org/) text extraction library. To use the Tika Java libraries in your .NET application via IKVM. 
 
 ## Getting Started 
 
@@ -14,26 +14,32 @@ The project provides a wrapper and helper functions around the [Tika](http://tik
 ```cs
 using Noggle.TikaOnDotNet.Text;
 
-var textExtractor = new TikaParser();
+var textParser = new TikaParser();
 
-var wordDocContents = textExtractor.Parse(@".\path\to\my favorite word.docx");
-var webPageContents = textExtractor.Parse(new Uri("https://google.com"));
+//Parse a local document file
+var localFileContents = textParser.Extract(stringToFile);
+
+//Parse a web URL
+var webPageContents = textParser.Extract(new Uri("https://google.com"));
+
+//Parse a .NET Stream
+var streamDocResults = textParser.Extract(new FileStream(file, FileMode.Open, FileAccess.Read));
+
 ```
+
 
 ## Nuget
 
 This project produces two nugets:
-- Noggle.TikaOnDotNet - A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
 
-[![Install-Package Noggle.TikaOnDotNet](https://cldup.com/H-IdGdU75T.png)](https://www.nuget.org/packages/Noggle.TikaOnDotnet/)
+- **Noggle.TikaOnDotNet**: A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
+Link: https://www.nuget.org/packages/Noggle.TikaOnDotnet/
 
-- Noggle.TikaOnDotNet.Text -  Helper functions to use Tika to extract text and additional metadata from rich documents.
+- **Noggle.TikaOnDotNet.Text**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
 
-[![Install-Package Noggle.TikaOnDotNet.Text](https://cldup.com/_BM0b5jVjU.png)](https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/)
-
-## How To Update as Developer
+## How To Update
 
 Start out by taking a look at the [Developer Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Developers.md). 
 
-## Original Source Reference
-This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using a newer Tika java version. There have been additional individual feature upgrades.
+## Source Reference
+This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using newer Tika java version. There have been additional individual feature upgrades in the wrapper package Noggle.TikaOnDotNet.Text.
