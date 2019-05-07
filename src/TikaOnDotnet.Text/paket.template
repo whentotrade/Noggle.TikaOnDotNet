@@ -2,7 +2,7 @@ type file
 authors Lars von Thienen
 id Noggle.TikaOnDotnet.Parser
 description
-  Wrapper and helper functions for running Apache Tika on .NET through Noggle.TikaOnDotNet. 
+  Wrapper and helper functions for running Apache Tika text extraction and parsing on .NET through Noggle.TikaOnDotNet. 
 files
     bin\Release\Noggle.TikaOnDotNet.* ==> lib
 dependencies

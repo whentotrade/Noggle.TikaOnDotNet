@@ -1,3 +1,8 @@
+## 1.20.3
+
+- Added additional helper & wrapper functions via Noggle.TikaOnDotNet.Parser
+- Tika updated to v 1.20. Please see the official Tika site for [what's changed]( http://tika.apache.org/1.20/ ).
+
 ## 1.20.2
 
 - Added additional helper & wrapper functions 
