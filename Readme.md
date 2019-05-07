@@ -14,16 +14,16 @@ The project provides a .NET wrapper with simple helper functions around the [Tik
 ```cs
 using Noggle.TikaOnDotNet.Text;
 
-var textParser = new TikaParser();
+var tika = new Tika();
 
 //Parse a local document file
-var localFileContents = textParser.Extract(stringToFile);
+var localFileContents = tika.Parse(stringToFile);
 
 //Parse a web URL
-var webPageContents = textParser.Extract(new Uri("https://google.com"));
+var webPageContents = tika.Parse(new Uri("https://google.com"));
 
 //Parse a .NET Stream
-var streamDocResults = textParser.Extract(new FileStream(file, FileMode.Open, FileAccess.Read));
+var streamDocResults = tika.Parse(new FileStream(file, FileMode.Open, FileAccess.Read));
 
 ```
 
