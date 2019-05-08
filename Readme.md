@@ -16,23 +16,17 @@ using Noggle.TikaOnDotNet.Parser;
 
 var tika = new Tika();
 
-//simple wrapper for text extraction
+//simple text extraction from File/URL/Stream
 string textFromFile = tika.ParseToString(stringToFile);
-
 string textFromStream = tika.ParseToString(streamObject);
-
 string textFromByteArray =tika.ParseToString(byteArrayObject);
 
-//Parse a local document file
+//Parse a document and extract text and metadata from File/URL/Stream
 var localFileContents = tika.Parse(stringToFile);
-
-//Parse a web URL
 var webPageContents = tika.Parse(new Uri("https://google.com"));
-
-//Parse a .NET Stream
 var streamDocResults = tika.Parse(new FileStream(file, FileMode.Open, FileAccess.Read));
 
-//Detect Language
+//Detect Language from string
 var lang = tika.GetLanguage(textString);
 
 ```
