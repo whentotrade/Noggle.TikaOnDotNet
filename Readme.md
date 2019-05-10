@@ -16,21 +16,18 @@ using Noggle.TikaOnDotNet.Parser;
 
 var tika = new Tika();
 
-//simple wrapper for text extraction
-string textFile = tika.ParseToString(stringToFile);
+//simple text extraction from File/URL/Stream
+string textFromFile = tika.ParseToString(stringToFile);
+string textFromStream = tika.ParseToString(streamObject);
+string textFromByteArray =tika.ParseToString(byteArrayObject);
 
-string textStream = tika.ParseToString(streamObject);
-
-string textByteArray =tika.ParseToString(byteArrayObject);
-
-//Parse a local document file
+//Parse a document and extract text and metadata from File/URL/Stream
 var localFileContents = tika.Parse(stringToFile);
-
-//Parse a web URL
 var webPageContents = tika.Parse(new Uri("https://google.com"));
-
-//Parse a .NET Stream
 var streamDocResults = tika.Parse(new FileStream(file, FileMode.Open, FileAccess.Read));
+
+//Detect Language from string
+var lang = tika.GetLanguage(textString);
 
 ```
 
@@ -42,11 +39,11 @@ This project produces two nugets:
 - **Noggle.TikaOnDotNet**: A straight [IKVM](http://www.ikvm.net/userguide/ikvmc.html) hosted port of Java Tika project.
 Link: https://www.nuget.org/packages/Noggle.TikaOnDotnet/
 
-- **Noggle.TikaOnDotNet.Parser**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Text/
+- **Noggle.TikaOnDotNet.Parser**: A wrapper with helper functions to use Tika to extract text and additional metadata from rich documents. Link: https://www.nuget.org/packages/Noggle.TikaOnDotNet.Parser/
 
 ## How To Update
 
 Start out by taking a look at the [Developer Guide](https://github.com/whentotrade/noggle.tikaondotnet/blob/master/Developers.md). 
 
 ## Source Reference
-This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using newer Tika java version. There have been additional individual feature upgrades in the wrapper package Noggle.TikaOnDotNet.Text.
+This project is an individual fork and extension of [TikaOnDotNet](https://github.com/KevM/tikaondotnet). It has upgraded .NET, Visual Stuio, FAKE And NUnit3 framwork dependencies as well as using newer Tika java version. There have been additional individual feature upgrades in the wrapper package Noggle.TikaOnDotNet.Parser. Original version was done by KevM as TikaOnDotNet.Text package.
