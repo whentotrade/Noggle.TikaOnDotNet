@@ -1,3 +1,27 @@
+## 1.20.4
+
+Quickstart:
+```cs
+using Noggle.TikaOnDotNet.Parser;
+
+var tika = new Tika();
+
+//simple wrapper for file/stream/bytearray text extraction
+string textFile = tika.ParseToString(stringToFile);
+string textStream = tika.ParseToString(streamObject);
+string textByteArray =tika.ParseToString(byteArrayObject);
+
+//Parse a file/webURL/.NET stream with text and metadata results
+var localFileContents = tika.Parse(stringToFile);
+var webPageContents = tika.Parse(new Uri("https://google.com"));
+var streamDocResults = tika.Parse(new FileStream(file, FileMode.Open, FileAccess.Read));
+
+```
+
+- Wrapper functions to use TikaOnDotNet via Noggle.TikaOnDotNet.Parser
+- Tika updated to v 1.20. See the official Tika site http://tika.apache.org/1.20/
+
+
 ## 1.20.3
 
 - Added additional helper & wrapper functions via Noggle.TikaOnDotNet.Parser
